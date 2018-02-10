@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+  	<groupId>com.act.idc.rpc</groupId>
+    <artifactId>act-idc-rpc</artifactId>
+    <version>5.0.4.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <groupId>com.act.idc.rpc.api</groupId>
+  <artifactId>act-idc-rpc-command-api</artifactId>
+  <description>该jar，提供针对策略模块所有的远程调用api</description>
+  <build/>
+  <version>5.0.4.0</version>
+</project>

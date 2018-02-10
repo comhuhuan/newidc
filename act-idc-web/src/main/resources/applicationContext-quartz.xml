@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<description>Spring定时配置 </description>
+
+
+    <!-- 定时任务样例  开始-->
+    <bean id="testTimerJob" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+    	<property name="durability" value="true" />
+        <property name="jobClass" value="com.act.web.job.TestJob"/>
+    </bean>
+    <bean id="testTimer" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="testTimerJob"/>
+        <property name="cronExpression" value="0 0/1 * * * ?" />
+    </bean>
+    <!-- 定时任务样例  结束-->
+
+   
+	<bean id="localQuartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<!-- Triggers集成 -->
+		<property name="triggers">
+			<list>
+                <ref bean="testTimer"/>
+			</list>
+		</property>
+	</bean>
+</beans>

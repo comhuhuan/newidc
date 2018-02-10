@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="config.properties" />
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple"
+        defaultModelType="flat">
+        <property name="beginningDelimiter" value="`" />
+        <property name="endingDelimiter" value="`" />
+
+        <plugin type="com.kpr.generator.MapperPlugin">
+            <property name="mappers" value="com.kpr.mapper.common.Mapper" />
+        </plugin>
+
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+            connectionURL="${jdbc.url}" userId="${jdbc.user}" password="${jdbc.password}">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.act.idc.entity"
+            targetProject="src/idc/java">
+            <property name="rootClass"
+                value="com.act.framework.entity.StandardEntity" />
+        </javaModelGenerator>
+        <!--增删改查样例 -->
+        <table tableName="tab_sys_operate_log" domainObjectName="TabSysOperateLogEntity">
+            <generatedKey column="op_id" sqlStatement="Mysql"
+                identity="true" />
+        </table>
+
+       <!-- IDC经营者管理ismsx_idcbasicinfo -->
+        <table tableName="ismsx_idcbasicinfo" domainObjectName="IsmsxIdcBasicInfoEntity">
+        	<generatedKey column="idcId" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        
+        <!-- ip地址段信息 ismsx_ipseginfo -->
+        <table tableName="ismsx_ipseginfo" domainObjectName="IsmsxIpSegInfoEntity">
+        	<generatedKey column="ipID" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        
+        <!-- 互联网出入口信息 ismxb_gatewayinfo -->
+        <table tableName="ismxb_gatewayinfo" domainObjectName="IsmxbGatewayInfoEntity">
+        	<generatedKey column="gatewayID" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        
+        <!-- 机房区域（物理机房） ismxb_gatewayinfo -->
+        <table tableName="res_rooms" domainObjectName="ResRoomsEntity">
+        	<generatedKey column="roomid" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        
+        <!-- 责任人信息 ismsx_idcuserinfo -->
+        <table tableName="ismsx_idcuserinfo" domainObjectName="IdcuserInfoEntity">
+        	<generatedKey column="userId" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        
+        <!-- 机柜信息 res_cabinets -->
+        <table tableName="res_cabinets" domainObjectName="ResCabinetsEntity">
+        	<generatedKey column="cabid" sqlStatement="Mysql"
+                          identity="true"/>
+        </table> 
+        
+        <!--信息安全指令 ismsc_idccommand -->
+        <table tableName="ismsc_idccommand" domainObjectName="IsmscIdcCommandEntity">
+        	<generatedKey column="idcCommandID" sqlStatement="Mysql" identity="true"/>
+        </table> 
+        <!--信息安全指令子规则ismsc_idccommandrule -->
+        <table tableName="ismsc_idccommandrule" domainObjectName="IsmscIdcCommandRuleEntity">
+        </table> 
+
+		<!-- 证件类型 tab_card_type -->
+        <table tableName="tab_card_type" domainObjectName="CardTypeEntity">
+        	<generatedKey column="card_type_code" sqlStatement="Mysql"
+                          identity="true"/>
+        </table> 
+		<!-- 接口配置表 -->
+		<table tableName="tab_interface_config" domainObjectName="TabInterfaceConfigEntity">
+        	<generatedKey column="interface_id" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        <table tableName="ts_query_cmd_log" domainObjectName="TsQueryCmdLogEntity">
+        	<generatedKey column="id" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        <table tableName="ipv4_ipv6_info" domainObjectName="Ipv4Ipv6InfoEntity">
+        	<generatedKey column="ipv4" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        <!-- 机房表 -->
+        <table tableName="tab_service_information" domainObjectName="TabServiceInformationEntity">
+        	<generatedKey column="service_code" sqlStatement="Mysql"
+                          identity="true"/>
+        </table>
+        <!-- fmj start -->
+        <!-- 系统配置表 -->
+        <table tableName="tab_sysconfig" domainObjectName="TabSysConfigEntity">
+        </table>
+        <table tableName="ismsc_nofilterblackrule" domainObjectName="NofilterBlackRuleEntity">
+            <generatedKey column="idcCommandID" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <!--fmj end-->
+        
+    </context>
+</generatorConfiguration>
